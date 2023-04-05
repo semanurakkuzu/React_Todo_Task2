@@ -1,14 +1,14 @@
 import React from 'react'
 
-function TodoLists({ todos, setTodos }) {
-  function deleteTodo(index) {
-    setTodos(todos.filter((_, todoIndex) => todoIndex !== index))
+function TodoLists({ todos, setTodos}) {
+  function deleteTodo(id) {
+    setTodos(todos.filter((todo) => todo.id !== id))
   }
 
-  function checkTodo(index) {
+  function checkTodo(id) {
     setTodos(
-      todos.map((todo, todoIndex) => {
-        if (todoIndex !== index) {
+      todos.map((todo) => {
+        if (todo.id !== id) {
           return todo
         }
         todo.completed = !todo.completed
@@ -30,12 +30,12 @@ function TodoLists({ todos, setTodos }) {
                 <input
                   className="toggle"
                   type="checkbox"
-                  onClick={() => checkTodo(index)}
+                  onClick={() => checkTodo(todo.id)}
                 />
                 <label>{todo.text}</label>
                 <button
                   className="destroy"
-                  onClick={() => deleteTodo(index)}
+                  onClick={() => deleteTodo(todo.id)}
                 ></button>
               </div>
             </li>
