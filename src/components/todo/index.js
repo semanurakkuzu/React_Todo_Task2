@@ -3,23 +3,30 @@ import Footer from './Footer'
 import AddTodo from './AddTodo'
 import Filter from './Filter'
 import TodoLists from './TodoLists'
+
 function Todo() {
+    
   const [todos, setTodos] = useState([])
   const [filteredTodos, setFilteredTodos] = useState([])
   const [filterType, setFilterType] = useState('all')
 
+  
   useEffect(() => {
+    //Set filtered items
     setFilteredTodos(filteredTypeTodos(filterType))
   }, [todos, filterType])
 
+    //Perform filtering operation according to the given type
   function filteredTypeTodos(filter) {
     if (filter === 'completed') {
       return todos.filter((item) => item.completed === true)
-    } else if (filter === 'active') {
-      return todos.filter((item) => item.completed === false)
-    } else {
-      return todos
     }
+
+    if (filter === 'active') {
+      return todos.filter((item) => item.completed === false)
+    }
+
+    return todos
   }
 
   return (

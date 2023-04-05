@@ -8,6 +8,7 @@ function Filter({
   setFilterType,
   filteredTypeTodos
 }) {
+    //Modify the filtering method and perform the filtering
   function changeFilter(filter) {
     setFilterType(filter)
     setFilteredTodos(filteredTypeTodos(filter))

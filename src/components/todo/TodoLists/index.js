@@ -1,6 +1,7 @@
 import React from 'react'
 
 function TodoLists({ todos, setTodos, filteredTodos }) {
+
   function deleteTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
@@ -11,7 +12,9 @@ function TodoLists({ todos, setTodos, filteredTodos }) {
         if (todo.id !== id) {
           return todo
         }
+
         todo.completed = !todo.completed
+        
         return todo
       })
     )
