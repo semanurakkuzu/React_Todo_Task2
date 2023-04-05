@@ -17,10 +17,14 @@ function AddTodo({ addTodo, todos }) {
     if (inputText === '') {
       return false
     }
-    addTodo([...todos, {
+    addTodo([
+      ...todos,
+      {
         text: inputText,
-        completed: false
-    }])
+        completed: false,
+        id: Math.floor(Math.random() * 10000)
+      }
+    ])
   }
 
   return (
