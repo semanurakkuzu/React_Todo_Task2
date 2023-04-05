@@ -17,7 +17,10 @@ function AddTodo({ addTodo, todos }) {
     if (inputText === '') {
       return false
     }
-    addTodo([...todos, inputText])
+    addTodo([...todos, {
+        text: inputText,
+        completed: false
+    }])
   }
 
   return (
