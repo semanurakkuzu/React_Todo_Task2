@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TodoLists({ todos, setTodos}) {
+function TodoLists({ todos, setTodos, filteredTodos }) {
   function deleteTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
@@ -23,9 +23,9 @@ function TodoLists({ todos, setTodos}) {
       <label htmlFor="toggle-all">Mark all as complete</label>
 
       <ul className="todo-list">
-        {todos &&
-          todos.map((todo, index) => (
-            <li key={index} className={todo.completed ? 'completed' : ''}>
+        {filteredTodos &&
+          filteredTodos.map((todo) => (
+            <li key={todo.id} className={todo.completed ? 'completed' : ''}>
               <div className="view">
                 <input
                   className="toggle"
