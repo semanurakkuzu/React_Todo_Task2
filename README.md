@@ -11,6 +11,7 @@ This is a simple todo application built using React.
 - Mark todos as complete
 - Filter todos by completion status
 - Delete todos
+- Edit todos
 
 
 ## Technologies Used
